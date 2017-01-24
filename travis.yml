@@ -1,0 +1,16 @@
+language: r
+r: release
+sudo: required
+
+os: osx      
+osx_image: xcode8.2
+
+before_install:
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+    - brew install xctool
+    
+install:
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
+    - brew link unixodbc
+    
+r_binary_packages: RODBC
