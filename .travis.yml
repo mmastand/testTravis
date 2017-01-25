@@ -6,8 +6,7 @@ os: osx
 osx_image: xcode8.2
 
 before_install:
-    - rvm get stable --auto-dotfiles
-    - rvm use ruby-2.0.0-p648
+    - sudo chown -R $(whoami) /usr/local
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
     - brew install xctool
     
