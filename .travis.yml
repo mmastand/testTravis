@@ -8,7 +8,9 @@ osx_image: xcode8.2
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
     - brew install xctool
-    - chmod  +w /usr/local/share/man/man7
+    - sudo chmod  +w /usr/local/share/man/man7
+    - sudo chown -R `whoami`:admin /usr/local/bin
+    - sudo chown -R `whoami`:admin /usr/local/share
     
 install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
