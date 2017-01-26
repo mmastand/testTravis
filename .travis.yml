@@ -6,13 +6,11 @@ os: osx
 osx_image: xcode8.2
 
 before_install:
+    - pwd
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
-    - brew install xctool
-    - sudo chmod  +w /usr/local/share/man/man7
-    - sudo chown -R `whoami`:admin /usr/local/bin
-    - sudo chown -R `whoami`:admin /usr/local/share
     
 install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
+    - brew doctor
     
 r_binary_packages: RODBC
